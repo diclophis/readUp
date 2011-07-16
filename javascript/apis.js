@@ -1,6 +1,18 @@
 
 Api = {}
 
+Api.ReadUp = {
+	results: [],
+	
+	search: function(term){
+		Api.Twitter.search(term)
+		Api.Reddit.search(term)
+		Api.Flickr.search(term)
+		Api.Storify.search(term)
+	}
+	
+}
+
 Api.Twitter = {
 	results: [],
 	
@@ -21,7 +33,7 @@ Api.Twitter = {
 		$.getJSON("http://search.twitter.com/search.json?jsonp=?",
 			{
 				q: term,
-				rpp: total || 5,
+				rpp: total || 50,
 				result_type: 'mixed',
 				callback: 'Api.Twitter.response'
 			}
@@ -56,7 +68,7 @@ Api.Flickr = {
 	results: [],
 	
 	search: function(term){
-		$.getJSON("http://api.flickr.com/services/feeds/photos_public.gne?jsonp=?",
+		$.getJSON("http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?",
 		{
 			tags: term,
 			tagmode: 'any',

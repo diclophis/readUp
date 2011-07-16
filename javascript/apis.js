@@ -56,7 +56,7 @@ Api.Flickr = {
 	results: [],
 	
 	search: function(term){
-		$.getJSON("http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?",
+		$.getJSON("http://api.flickr.com/services/feeds/photos_public.gne?jsonp=?",
 		{
 			tags: term,
 			tagmode: 'any',
@@ -72,6 +72,27 @@ Api.Flickr = {
 				'url': item.link
 			});
 		  });
+		});
+	}
+}
+
+Api.Storify = {
+	results: [],
+	
+	response: function(data) {
+	  $.each(data.stories, function(i,item){
+	    Api.Storify.results.push({
+			'icon': item.thumbnail,
+			'text': item.description,
+			'title': item.title,
+			'url': item.permalink
+		});
+	  });
+	},
+	
+	search: function(term){
+		$.getJSON("http://storify.com/topics/"+ term +".json?jsonp=?",{
+			callback: 'Api.Storify.response'
 		});
 	}
 }

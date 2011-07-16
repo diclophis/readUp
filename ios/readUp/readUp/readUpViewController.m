@@ -40,7 +40,7 @@
   
   [mWebView loadHTMLString:[NSString stringWithContentsOfURL:[[NSBundle mainBundle] URLForResource:@"index" withExtension:@"html" subdirectory:@"public"] encoding:NSUTF8StringEncoding error:nil] baseURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"public" ofType:nil]]];
   
-  [[mWebView.subviews objectAtIndex:0] setScrollEnabled:NO];  //to stop scrolling completely
+  //[[mWebView.subviews objectAtIndex:0] setScrollEnabled:NO];  //to stop scrolling completely
   [[mWebView.subviews objectAtIndex:0] setBounces:NO]; //to stop bouncing
   [mWebView setScalesPageToFit:NO];
   [mWebView setBackgroundColor:[UIColor clearColor]];

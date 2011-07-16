@@ -3,14 +3,76 @@ Api = {}
 
 Api.ReadUp = {
 	results: [],
-	
-	search: function(term){
-		Api.Twitter.search(term)
-		Api.Reddit.search(term)
-		Api.Flickr.search(term)
-		Api.Storify.search(term)
-	}
-	
+  cursor: 0,
+  count: 0,
+  lastWasReady: false,
+  term: "",
+  page: 1,
+
+  onNextReadyCallback: function() {
+    console.log('please call Api.ReadUp.init passing in a callback for onNextReady');
+  },
+
+  init: function(t, c, onrc) {
+    this.term = t;
+    this.count = c;
+    if (onrc === undefined) {
+    } else {
+      console.log('setting onrc');
+      this.onNextReadyCallback = onrc;
+    }
+    this.search();
+  },
+
+	search: function() {
+    Api.Twitter.search(this.term, this.page);
+    Api.Reddit.search(this.term, this.page);
+    Api.Flickr.search(this.term, this.page);
+    Api.Storify.search(this.term, this.page);
+    return true;
+	},
+
+  fill: function(item) {
+    this.results.push(item);
+    has_enough_items_for_a_page = (this.results.length > (this.cursor + this.count));
+    if (has_enough_items_for_a_page && !this.lastWasReady) {
+      this.lastWasReady = true;
+      this.onNextReadyCallback();
+    }
+    console.log("buffer is now this big: " + this.results.length);
+  },
+
+  previous: function() {
+    if (this.lastWasReady) {
+      this.cursor -= (this.count);
+      if (this.cursor < 0) {
+        this.cursor = 0;
+      }
+      console.log("prev slicing: ", this.cursor, this.count, this.results.length);
+      sliced = this.results.slice(this.cursor, this.cursor + this.count)
+      return sliced;
+    }
+  },
+
+  next: function() {
+    if (this.lastWasReady) {
+      console.log("next slicing: ", this.cursor, this.count, this.results.length);
+      sliced = this.results.slice(this.cursor, this.cursor + this.count)
+      if (sliced.length == this.count) {
+        this.cursor += sliced.length;
+        return sliced;
+      } else {
+        this.lastWasReady = false;
+        this.page += 1;
+        if (this.page < 4) {
+          console.log("nothing to pop, maybe search for page=2???");
+          this.search();
+        } else {
+          console.log("at last page");
+        }
+      }
+    }
+  }
 }
 
 Api.ReadUp.Storage = {}
@@ -53,11 +115,9 @@ Api.ReadUp.Storage.Archive = {
 }
 
 Api.Twitter = {
-	results: [],
-	
 	response: function(data){
 	    $.each(data.results, function(i,item){
-	    	Api.Twitter.results.push({
+	    	Api.ReadUp.fill({
 				'icon': item.profile_image_url,
 				'title': item.from_user + ' says',
 				'text': item.text,
@@ -68,10 +128,11 @@ Api.Twitter = {
 		return Api.Twitter.results;
 	},
 	
-	search: function(term, total){
+	search: function(term, p, total){
 		$.getJSON("http://search.twitter.com/search.json?jsonp=?",
 			{
 				q: term,
+        page: p,
 				rpp: total || 50,
 				result_type: 'mixed',
 				callback: 'Api.Twitter.response'
@@ -81,9 +142,7 @@ Api.Twitter = {
 }
 
 Api.Reddit = {
-	results: [],
-	
-	search: function(term){
+	search: function(term, p) {
 		$.getJSON("http://www.reddit.com/search.json?jsonp=?",
 		{
 			q: term,
@@ -91,7 +150,7 @@ Api.Reddit = {
 		},
 		function(result){
 			$.each(result.data.children, function(i, item) {
-				Api.Reddit.results.push({
+				Api.ReadUp.fill({
 					'icon': null,
 					'title': item.data.title,
 					'text': item.data.selftext,
@@ -104,9 +163,7 @@ Api.Reddit = {
 }
 
 Api.Flickr = {
-	results: [],
-	
-	search: function(term){
+	search: function(term, p) {
 		$.getJSON("http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?",
 		{
 			tags: term,
@@ -115,7 +172,7 @@ Api.Flickr = {
 		},
 		function(data) {
 		  $.each(data.items, function(i,item){
-		    Api.Flickr.results.push({
+		    Api.ReadUp.fill({
 				'icon': null,
 				'text': null,
 				'title': item.title,
@@ -128,11 +185,9 @@ Api.Flickr = {
 }
 
 Api.Storify = {
-	results: [],
-	
 	response: function(data) {
 	  $.each(data.stories, function(i,item){
-	    Api.Storify.results.push({
+	    Api.ReadUp.fill({
 			'icon': item.thumbnail,
 			'text': item.description,
 			'title': item.title,
@@ -141,8 +196,9 @@ Api.Storify = {
 	  });
 	},
 	
-	search: function(term){
-		$.getJSON("http://storify.com/topics/"+ term +".json?jsonp=?",{
+	search: function(term, p) {
+		$.getJSON("http://storify.com/topics/"+ term +".json?jsonp=?", {
+      page: p,
 			callback: 'Api.Storify.response'
 		});
 	}

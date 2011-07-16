@@ -4,42 +4,9 @@
 	<head>
 		<script type="text/javascript" charset="utf-8" src="javascript/jquery-1.6.2.min.js"></script>
 		<script type="text/javascript" charset="utf-8" src="javascript/jquery.Storage.js"></script>
-		<link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed|Varela+Round|Droid+Sans|Swanky+and+Moo+Moo&v2' rel='stylesheet' type='text/css'>
+		<script type="text/javascript" charset="utf-8" src="javascript/apis.js"></script>
 	</head>
 	<body>
-		<div id="images"></div>
-    <div id="reddit"></div> 
-    <h1> An h1 tag</h1>
-    <p>Some content in a paragraph</p>
-		<script>
-		$.getJSON("http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?",
-		  {
-		    tags: "cat",
-		    tagmode: "any",
-		    format: "json"
-		  },
-		  function(data) {
-		    $.each(data.items, function(i,item){
-		      $("<img/>").attr("src", item.media.m).appendTo("#images");
-		      if ( i == 3 ) return false;
-		    });
-		  });
-      
-      
-      
-      
-      
-        $.getJSON(
-          "http://www.reddit.com/search.json?q=css&sort=top&jsonp=?",
-          { q: "css", sort: "top" },
-          function(result) {
-		        $.each(result.data.children, function(i, item) {
-              //alert(item);
-              $("<div/>").text(item.data.title).appendTo("#reddit");
-            });
-          }
-        );
-      </script>
-
+	 
 	</body>
 </html>

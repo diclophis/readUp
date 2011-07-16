@@ -7,6 +7,7 @@
 	</head>
 	<body>
 		<div id="images"></div>
+    <div id="reddit"></div>
 		<script>
 		$.getJSON("http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?",
 		  {
@@ -19,8 +20,23 @@
 		      $("<img/>").attr("src", item.media.m).appendTo("#images");
 		      if ( i == 3 ) return false;
 		    });
-		  });</script>
-
+		  });
+      
+      
+      
+      
+      
+        $.getJSON(
+          "http://www.reddit.com/search.json?q=css&sort=top&jsonp=?",
+          { q: "css", sort: "top" },
+          function(result) {
+		        $.each(result.data.children, function(i, item) {
+              //alert(item);
+              $("<div/>").text(item.data.title).appendTo("#reddit");
+            });
+          }
+        );
+      </script>
 		</body>
 	</body>
 </html>

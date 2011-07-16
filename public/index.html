@@ -7,6 +7,29 @@
 		<script type="text/javascript" charset="utf-8" src="javascript/apis.js"></script>
 	  <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed|Varela+Round|Droid+Sans|Swanky+and+Moo+Moo&v2' rel='stylesheet' type='text/css'>
 	  <link href='stylesheets/structure.css' rel='stylesheet' type='text/css'>
+	  <script type="text/javascript">
+      $(document).ready(function() {
+        Api.ReadUp.init("boobies", 10, function() {
+        });
+        window.setInterval(function() {
+          if (Api.ReadUp.lastWasReady) {
+            console.log("is ready");
+            sliced = Api.ReadUp.next();
+            if (sliced) {
+              $.each(sliced, function(i, item) {
+                //console.log(item);
+                $("<h1/>").text(item.title).appendTo("#debug");
+                if (item.image) {
+                  $("<img/>").attr("src", item.image).appendTo("#debug");
+                }
+              });
+            }
+          } else {
+            console.log("nothing there");
+          }
+        }, 500);
+      });
+    </script>
 	</head>
 	<body>
 	    <div id="wrapper">
@@ -31,5 +54,7 @@
           footer
         </div>
       </div>
+    <div id="debug">
+    </div>
 	</body>
 </html>

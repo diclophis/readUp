@@ -13,6 +13,45 @@ Api.ReadUp = {
 	
 }
 
+Api.ReadUp.Storage = {}
+Api.ReadUp.Storage.Keywords = {
+
+	save: function(value){
+		var saved = false;
+		current = Api.ReadUp.Storage.Keywords.load();
+		if ($.inArray(value, current) == -1){
+			current.push(value);
+			saved = $.Storage.saveItem("keywords", current);
+		}
+		return saved;
+	},
+	
+	load: function(){
+		var data = $.Storage.loadItem("keywords");
+		return data || []
+	}
+}
+
+Api.ReadUp.Storage.Archive = {
+	
+	save: function(title, url){
+		var saved = false;
+		var value = [title, url];
+		current = Api.ReadUp.Storage.Archive.load();
+		if ($.inArray(value, current) == -1){
+			current.push(value);
+			saved = $.Storage.saveItem("archive", current);
+		}
+		return saved;
+	},
+	
+	load: function(){
+		var data = $.Storage.loadItem("archive");
+		return data || []
+	}
+	
+}
+
 Api.Twitter = {
 	results: [],
 	

@@ -1,0 +1,303 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		FC43C99813D2184800F1C923 /* public in Resources */ = {isa = PBXBuildFile; fileRef = FC43C99713D2184800F1C923 /* public */; };
+		FCD69E2B13D2140300EF1D24 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCD69E2A13D2140300EF1D24 /* UIKit.framework */; };
+		FCD69E2D13D2140300EF1D24 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCD69E2C13D2140300EF1D24 /* Foundation.framework */; };
+		FCD69E2F13D2140300EF1D24 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCD69E2E13D2140300EF1D24 /* CoreGraphics.framework */; };
+		FCD69E3513D2140300EF1D24 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FCD69E3313D2140300EF1D24 /* InfoPlist.strings */; };
+		FCD69E3813D2140300EF1D24 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD69E3713D2140300EF1D24 /* main.m */; };
+		FCD69E3B13D2140300EF1D24 /* readUpAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD69E3A13D2140300EF1D24 /* readUpAppDelegate.m */; };
+		FCD69E3E13D2140300EF1D24 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCD69E3C13D2140300EF1D24 /* MainWindow.xib */; };
+		FCD69E4113D2140300EF1D24 /* readUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD69E4013D2140300EF1D24 /* readUpViewController.m */; };
+		FCD69E4413D2140300EF1D24 /* readUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCD69E4213D2140300EF1D24 /* readUpViewController.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		FCD69E4A13D2144B00EF1D24 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 7;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		FC43C99713D2184800F1C923 /* public */ = {isa = PBXFileReference; lastKnownFileType = folder; name = public; path = ../../public; sourceTree = "<group>"; };
+		FCD69E2613D2140300EF1D24 /* readUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = readUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FCD69E2A13D2140300EF1D24 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		FCD69E2C13D2140300EF1D24 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		FCD69E2E13D2140300EF1D24 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		FCD69E3213D2140300EF1D24 /* readUp-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "readUp-Info.plist"; sourceTree = "<group>"; };
+		FCD69E3413D2140300EF1D24 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		FCD69E3613D2140300EF1D24 /* readUp-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "readUp-Prefix.pch"; sourceTree = "<group>"; };
+		FCD69E3713D2140300EF1D24 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		FCD69E3913D2140300EF1D24 /* readUpAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = readUpAppDelegate.h; sourceTree = "<group>"; };
+		FCD69E3A13D2140300EF1D24 /* readUpAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = readUpAppDelegate.m; sourceTree = "<group>"; };
+		FCD69E3D13D2140300EF1D24 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
+		FCD69E3F13D2140300EF1D24 /* readUpViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = readUpViewController.h; sourceTree = "<group>"; };
+		FCD69E4013D2140300EF1D24 /* readUpViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = readUpViewController.m; sourceTree = "<group>"; };
+		FCD69E4313D2140300EF1D24 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/readUpViewController.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FCD69E2313D2140300EF1D24 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FCD69E2B13D2140300EF1D24 /* UIKit.framework in Frameworks */,
+				FCD69E2D13D2140300EF1D24 /* Foundation.framework in Frameworks */,
+				FCD69E2F13D2140300EF1D24 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FCD69E1B13D2140300EF1D24 = {
+			isa = PBXGroup;
+			children = (
+				FC43C99713D2184800F1C923 /* public */,
+				FCD69E3013D2140300EF1D24 /* readUp */,
+				FCD69E2913D2140300EF1D24 /* Frameworks */,
+				FCD69E2713D2140300EF1D24 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FCD69E2713D2140300EF1D24 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FCD69E2613D2140300EF1D24 /* readUp.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FCD69E2913D2140300EF1D24 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FCD69E2A13D2140300EF1D24 /* UIKit.framework */,
+				FCD69E2C13D2140300EF1D24 /* Foundation.framework */,
+				FCD69E2E13D2140300EF1D24 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FCD69E3013D2140300EF1D24 /* readUp */ = {
+			isa = PBXGroup;
+			children = (
+				FCD69E3913D2140300EF1D24 /* readUpAppDelegate.h */,
+				FCD69E3A13D2140300EF1D24 /* readUpAppDelegate.m */,
+				FCD69E3C13D2140300EF1D24 /* MainWindow.xib */,
+				FCD69E3F13D2140300EF1D24 /* readUpViewController.h */,
+				FCD69E4013D2140300EF1D24 /* readUpViewController.m */,
+				FCD69E4213D2140300EF1D24 /* readUpViewController.xib */,
+				FCD69E3113D2140300EF1D24 /* Supporting Files */,
+			);
+			path = readUp;
+			sourceTree = "<group>";
+		};
+		FCD69E3113D2140300EF1D24 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FCD69E3213D2140300EF1D24 /* readUp-Info.plist */,
+				FCD69E3313D2140300EF1D24 /* InfoPlist.strings */,
+				FCD69E3613D2140300EF1D24 /* readUp-Prefix.pch */,
+				FCD69E3713D2140300EF1D24 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FCD69E2513D2140300EF1D24 /* readUp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FCD69E4713D2140300EF1D24 /* Build configuration list for PBXNativeTarget "readUp" */;
+			buildPhases = (
+				FCD69E4A13D2144B00EF1D24 /* CopyFiles */,
+				FCD69E2213D2140300EF1D24 /* Sources */,
+				FCD69E2313D2140300EF1D24 /* Frameworks */,
+				FCD69E2413D2140300EF1D24 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = readUp;
+			productName = readUp;
+			productReference = FCD69E2613D2140300EF1D24 /* readUp.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FCD69E1D13D2140300EF1D24 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = FCD69E2013D2140300EF1D24 /* Build configuration list for PBXProject "readUp" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = FCD69E1B13D2140300EF1D24;
+			productRefGroup = FCD69E2713D2140300EF1D24 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FCD69E2513D2140300EF1D24 /* readUp */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FCD69E2413D2140300EF1D24 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FCD69E3513D2140300EF1D24 /* InfoPlist.strings in Resources */,
+				FCD69E3E13D2140300EF1D24 /* MainWindow.xib in Resources */,
+				FCD69E4413D2140300EF1D24 /* readUpViewController.xib in Resources */,
+				FC43C99813D2184800F1C923 /* public in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FCD69E2213D2140300EF1D24 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FCD69E3813D2140300EF1D24 /* main.m in Sources */,
+				FCD69E3B13D2140300EF1D24 /* readUpAppDelegate.m in Sources */,
+				FCD69E4113D2140300EF1D24 /* readUpViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		FCD69E3313D2140300EF1D24 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FCD69E3413D2140300EF1D24 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		FCD69E3C13D2140300EF1D24 /* MainWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FCD69E3D13D2140300EF1D24 /* en */,
+			);
+			name = MainWindow.xib;
+			sourceTree = "<group>";
+		};
+		FCD69E4213D2140300EF1D24 /* readUpViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FCD69E4313D2140300EF1D24 /* en */,
+			);
+			name = readUpViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		FCD69E4513D2140300EF1D24 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_UNIVERSAL_IPHONE_OS)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		FCD69E4613D2140300EF1D24 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_UNIVERSAL_IPHONE_OS)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Release;
+		};
+		FCD69E4813D2140300EF1D24 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "readUp/readUp-Prefix.pch";
+				INFOPLIST_FILE = "readUp/readUp-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		FCD69E4913D2140300EF1D24 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "readUp/readUp-Prefix.pch";
+				INFOPLIST_FILE = "readUp/readUp-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FCD69E2013D2140300EF1D24 /* Build configuration list for PBXProject "readUp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FCD69E4513D2140300EF1D24 /* Debug */,
+				FCD69E4613D2140300EF1D24 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FCD69E4713D2140300EF1D24 /* Build configuration list for PBXNativeTarget "readUp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FCD69E4813D2140300EF1D24 /* Debug */,
+				FCD69E4913D2140300EF1D24 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FCD69E1D13D2140300EF1D24 /* Project object */;
+}

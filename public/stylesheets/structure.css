@@ -2,15 +2,128 @@ body {
   background:#ffffff;
   text-align:center;
   font-family: ‘Varela Round’, Arial, sans-serif; 
-  font-weight: 400;
+  font-weight: 400; 
+  color:#637a6b;
 }
 
-body #wrapper {
+body #wrapper { 
+  position:relative;
+  display:table;
   width:1024px;
-  height:780px;
+  height:768px; 
+  text-align:center; 
+  margin:0 auto;
+  overflow:hidden;
 }   
 
 h1, h2, h3, h4 { 
   font-family: ‘Open Sans Condensed’, Tahoma, sans-serif; 
   font-weight: 400; 
+}        
+
+#wrapper #header {
+  background:#2175cb url('../images/logolines.png') 0 center no-repeat;
+  width:100%; 
+  padding:10px 0 0;
+  text-align:left;
 }
+
+#wrapper #header #logo {
+  margin:-15px 0 0 65px;
+  font:normal 160px/170px "Swanky and Moo Moo", serif;
+  color:#fff;
+}
+
+#wrapper #footer {
+  background:#a6a6a6;
+  position:absolute;
+  bottom:0;
+  width:1024px;
+  padding:5px 0;
+  clear:both;
+}
+
+/* homepage body */
+
+#body {}
+
+body #welcome {
+  width:320px;
+}
+
+body #input_area {
+  width:486px;
+}
+
+body #input_area form {
+  margin:30px 0 0
+  ;
+}
+
+body #input_area form textarea {
+  width:370px;
+  height:280px;
+  background-color:#d8d8d8;
+  overflow:hidden;
+  border:0;
+  padding:30px;
+}
+
+body #input_area form input[type="submit"] {
+  width:430px;
+  padding:15px 0 22px; 
+  margin:0 0 20px;
+  text-align:center;
+  background:url('../images/submit_button.png') 0 0 no-repeat;
+  color:#fff;
+  text-decoration:none;
+  cursor:pointer;
+  border:0;
+  font-size:42px;
+}  
+
+
+/* columns and structural blocks */
+.rounded {
+  border-radius:10px;
+  -webkit-border-radius:10px;
+  -moz-border-radius:10px;
+}
+
+.columns {
+  padding:0;
+}       
+
+.half_width {
+  width:50%;
+}
+
+.one_third_width {
+  width:340px;
+}
+
+.two_third_width {
+  width:680px;
+}
+
+.left {
+  float:left;
+}
+
+.right {
+  float:right;
+}
+
+.content_boxes {
+  margin:20px;
+}
+
+
+
+
+
+
+
+
+
+

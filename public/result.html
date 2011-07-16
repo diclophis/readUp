@@ -7,17 +7,39 @@
     <title>readUp</title>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed|Varela+Round|Droid+Sans|Swanky+and+Moo+Moo&v2' rel='stylesheet' type='text/css'>
     <link href="stylesheets/layout.css" media="screen" rel="stylesheet" type="text/css" />
-    <script src="javascript/jquery-1.6.2.min.js" type="text/javascript"></script>
-    <script src="javascript/main.js" type="text/javascript"></script>
-    <script src="text/javascript">
-      // $("ul#content li").first().flip({
-      //   direction:'tb',
-      //   content:'this is my new content'
-      // })
+		<script type="text/javascript" charset="utf-8" src="javascript/jquery-1.6.2.min.js"></script>
+		<script type="text/javascript" charset="utf-8" src="javascript/jquery.Storage.js"></script>
+		<script type="text/javascript" charset="utf-8" src="javascript/apis.js"></script>
+    <script type="text/javascript" charset="utf-8" src="javascript/main.js"></script>
+	  <script type="text/javascript">
+      $(document).ready(function() {
+        Api.ReadUp.init("bird", 10, function() {
+        });
+        window.setInterval(function() {
+          if (Api.ReadUp.lastWasReady) {
+            console.log("is ready");
+            sliced = Api.ReadUp.next();
+            if (sliced) {
+              $.each(sliced, function(i, item) {
+                //console.log(item);
+                $("<h1/>").text(item.title).appendTo("#debug");
+                if (item.image) {
+                  $("<img/>").attr("src", item.image).appendTo("#debug");
+                }
+              });
+            }
+          } else {
+            console.log("nothing there");
+          }
+        }, 500);
+      });
     </script>
+
 
   </head>
   <body class='portrait'>
+    <div id='debug'>
+    </div>
     <div id='header'>
       <h1 id='logo'>readUp</h1>
     </div>

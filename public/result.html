@@ -19,7 +19,6 @@
           if (items) {
             $.each(items, function(i, item) {
               $("ul#content li:eq("+i+") img").attr("src", item.image || item.icon);
-              $("ul#content li:eq("+i+") img").remove();
               $("ul#content li:eq("+i+") h2.title").html(item.title).addClass(item.source.toLowerCase());
               $("ul#content li:eq("+i+") p.description").html(item.text);
             });

@@ -147,6 +147,12 @@ ul#content {
       font-family: "Open Sans Condensed", sans-serif;
       font-weight: bold;
       font-size: 20px; }
+      ul#content li.article h2.title.twitter {
+        border-bottom: 3px solid blue; }
+      ul#content li.article h2.title.reddit {
+        border-bottom: 3px solid red; }
+      ul#content li.article h2.title.flickr {
+        border-bottom: 3px solid pink; }
     ul#content li.article p.description {
       display: block;
       background: #f8ffff;

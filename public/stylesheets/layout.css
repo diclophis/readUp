@@ -135,7 +135,7 @@ ul#content {
     ul#content li.article .icon {
       display: block;
       position: relative;
-      height: 150px;
+      height: 120px;
       margin: 10px 10px 0px;
       overflow: hidden; }
       ul#content li.article .icon img {
@@ -153,17 +153,9 @@ ul#content {
       margin: 10px 10px 10px;
       font-family: "Varela Round", sans-serif;
       font-size: 13px; }
-    ul#content li.article:nth-child(1), ul#content li.article:nth-child(4) {
-      height: 314px; }
-    ul#content li.article:nth-child(2), ul#content li.article:nth-child(3), ul#content li.article:nth-child(5), ul#content li.article:nth-child(6) {
+    ul#content li.article {
+      height: 314px;
       height: 157px; }
-      ul#content li.article:nth-child(2) .icon, ul#content li.article:nth-child(3) .icon, ul#content li.article:nth-child(5) .icon, ul#content li.article:nth-child(6) .icon {
-        float: left;
-        width: 120px;
-        height: 120px; }
-      ul#content li.article:nth-child(2) .text, ul#content li.article:nth-child(3) .text, ul#content li.article:nth-child(5) .text, ul#content li.article:nth-child(6) .text {
-        float: left;
-        width: 372px; }
 
 #navigation {
   display: block;
@@ -199,3 +191,15 @@ ul#content {
       width: 10px;
       height: 10px;
       margin: 10px 3px; }
+
+body.portrait ul#content {
+  width: 768px;
+  height: 896px; }
+  body.portrait ul#content li.article {
+    width: 384px;
+    height: 224px; }
+
+body.portrait #navigation {
+  width: 768px; }
+  #navigation ul#pagination {
+    width: 568px; }

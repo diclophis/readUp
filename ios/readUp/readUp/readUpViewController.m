@@ -34,10 +34,7 @@
 - (void)viewDidLoad
 {
   [super viewDidLoad];
-  
-  //[mWebView loadRequest:[NSURLRequest requestWithURL:];
-  
-  
+
   [mWebView loadHTMLString:[NSString stringWithContentsOfURL:[[NSBundle mainBundle] URLForResource:@"result" withExtension:@"html" subdirectory:@"public"] encoding:NSUTF8StringEncoding error:nil] baseURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"public" ofType:nil]]];
   
   //[[mWebView.subviews objectAtIndex:0] setScrollEnabled:NO];  //to stop scrolling completely
@@ -47,6 +44,28 @@
   [mWebView setAllowsInlineMediaPlayback:YES];
   [mWebView setMediaPlaybackRequiresUserAction:NO];
   
+}
+
+
+- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
+{
+  switch (toInterfaceOrientation)
+  {
+    case UIDeviceOrientationPortrait:
+      [mWebView stringByEvaluatingJavaScriptFromString:@"window.__defineGetter__('orientation',function(){return 0;});window.onorientationchange();"];
+      break;
+    case UIDeviceOrientationLandscapeLeft:
+      [mWebView stringByEvaluatingJavaScriptFromString:@"window.__defineGetter__('orientation',function(){return 90;});window.onorientationchange();"];
+      break;
+    case UIDeviceOrientationLandscapeRight:
+      [mWebView stringByEvaluatingJavaScriptFromString:@"window.__defineGetter__('orientation',function(){return -90;});window.onorientationchange();"];
+      break;
+    case UIDeviceOrientationPortraitUpsideDown:
+      [mWebView stringByEvaluatingJavaScriptFromString:@"window.__defineGetter__('orientation',function(){return 180;});window.onorientationchange();"];
+      break;
+    default:
+      break;
+  }
 }
 
 
@@ -62,5 +81,6 @@
     // Return YES for supported orientations
     return YES;
 }
+
 
 @end

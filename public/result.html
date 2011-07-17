@@ -39,9 +39,11 @@
                 description.addClass("description").html(item.text);
                 article.append(description);
               } else if (item.source.toLowerCase() == "twitter") {
-                title.addClass("title").html(item.title);
-                description.addClass("description").html(item.text);
-                article.append(title).append(description);
+                var begin_quote = $("<div class='begin_quote'>&#8220;</div>");
+                var end_quote = $("<div class='end_quote'>&#8222;</div>");
+                var poster = $("<div></div>").addClass("poster").html("- " + item.title);
+                description.addClass("message").append(begin_quote).append(item.text).append(poster).append(end_quote);
+                article.append(description);
               } else if (item.source.toLowerCase() == "storify") {
                 title.addClass("title").html(item.title);
                 description.addClass("description").html(item.text);

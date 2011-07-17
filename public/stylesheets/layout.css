@@ -147,8 +147,39 @@ ul#content {
       font-family: "Open Sans Condensed", sans-serif;
       font-weight: bold;
       font-size: 20px; }
-      ul#content li.article.twitter h2.title {
-        border-bottom: 3px solid blue; }
+    ul#content li.article.twitter p.message {
+      position: relative;
+      margin: 10px 10px;
+      padding: 15px 30px; }
+      ul#content li.article.twitter p.message .begin_quote {
+        position: absolute;
+        display: block;
+        width: 32px;
+        height: 32px;
+        top: 0px;
+        left: 0px;
+        font-size: 32px;
+        font-weight: bold;
+        color: #7c7c7c;
+        line-height: 32px;
+        text-align: left; }
+      ul#content li.article.twitter p.message .poster {
+        margin-top: 10px;
+        font-style: italic;
+        color: #7c7c7c;
+        text-align: right; }
+      ul#content li.article.twitter p.message .end_quote {
+        position: absolute;
+        display: block;
+        width: 32px;
+        height: 32px;
+        bottom: 0px;
+        right: 0px;
+        font-size: 32px;
+        font-weight: bold;
+        color: #7c7c7c;
+        line-height: 32px;
+        text-align: right; }
       ul#content li.article.reddit h2.title {
         border-bottom: 3px solid red; }
       ul#content li.article.flickr h2.title {
@@ -159,9 +190,7 @@ ul#content {
       margin: 10px 10px 10px;
       font-family: "Varela Round", sans-serif;
       font-size: 13px; }
-    ul#content li.article {
-      height: 314px;
-      height: 157px; }
+    ul#content li.article { }
 
 #navigation {
   display: block;

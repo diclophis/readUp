@@ -130,7 +130,7 @@ Api.Twitter = {
 	    $.each(data.results, function(i,item){
 	    	Api.ReadUp.fill({
 				'icon': item.profile_image_url,
-				'title': item.from_user + ' says',
+				'title': item.from_user,
 				'text': item.text,
 				'image': null,
 				'url': item.source,

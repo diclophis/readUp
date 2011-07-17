@@ -212,6 +212,11 @@ body #searcharea .searched_terms ul li {
   list-style:none outside none;
 }
 
+#input_error {
+  color:black;
+  font:normal 15px/18px sans-serif;
+}
+
 /* columns and structural blocks */
 .rounded {
   border-radius:10px;

@@ -7,9 +7,11 @@
     <title>readUp</title>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed|Varela+Round|Droid+Sans|Swanky+and+Moo+Moo&v2' rel='stylesheet' type='text/css'>
     <link href="stylesheets/layout.css" media="screen" rel="stylesheet" type="text/css" />
+    <link href="stylesheets/colorbox.css" media="screen" rel="stylesheet" type="text/css" />
 		<script type="text/javascript" charset="utf-8" src="javascript/jquery-1.6.2.min.js"></script>
 		<script type="text/javascript" charset="utf-8" src="javascript/jquery.Storage.js"></script>
 		<script type="text/javascript" charset="utf-8" src="javascript/jquery.shuffle.js"></script>
+    <script type="text/javascript" charset="utf-8" src="javascript/jquery.colorbox-min.js"></script>
 		<script type="text/javascript" charset="utf-8" src="javascript/apis.js"></script>
     <script type="text/javascript" charset="utf-8" src="javascript/main.js"></script>
 	  <script type="text/javascript">
@@ -26,6 +28,12 @@
               if (item.source.toLowerCase() == "flickr") {
                 image.addClass("img").attr("src", item.image || item.icon);
                 var image_box = $("<div class='icon'></div>").append(image);
+                image_box.colorbox({
+                  href: item.image || item.icon,
+                  scalePhotos: true,
+                  maxWidth: '90%',
+                  maxHeight: '90%'
+                });
                 article.append(image_box);
               } else if (item.source.toLowerCase() == "reddit") {
                 description.addClass("description").html(item.text);

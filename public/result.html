@@ -7,9 +7,11 @@
     <title>readUp</title>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed|Varela+Round|Droid+Sans|Swanky+and+Moo+Moo&v2' rel='stylesheet' type='text/css'>
     <link href="stylesheets/layout.css" media="screen" rel="stylesheet" type="text/css" />
+    <link href="stylesheets/colorbox.css" media="screen" rel="stylesheet" type="text/css" />
 		<script type="text/javascript" charset="utf-8" src="javascript/jquery-1.6.2.min.js"></script>
 		<script type="text/javascript" charset="utf-8" src="javascript/jquery.Storage.js"></script>
 		<script type="text/javascript" charset="utf-8" src="javascript/jquery.shuffle.js"></script>
+    <script type="text/javascript" charset="utf-8" src="javascript/jquery.colorbox-min.js"></script>
 		<script type="text/javascript" charset="utf-8" src="javascript/apis.js"></script>
     <script type="text/javascript" charset="utf-8" src="javascript/main.js"></script>
 	  <script type="text/javascript">
@@ -21,6 +23,12 @@
               $("ul#content li:eq("+i+") img").attr("src", item.image || item.icon);
               $("ul#content li:eq("+i+") h2.title").html(item.title).addClass(item.source.toLowerCase());
               $("ul#content li:eq("+i+") p.description").html(item.text);
+              $("ul#content li:eq("+i+")").colorbox({
+                iframe: true, 
+                href: item.url,
+                width: '90%',
+                height: '90%'
+              });
             });
           }
         });

@@ -29,7 +29,8 @@
               article.addClass("article").addClass(item.source.toLowerCase());
               if (item.source.toLowerCase() == "flickr") {
                 image.addClass("img").attr("src", item.image || item.icon);
-                var image_box = $("<div class='icon'></div>").append(image);
+                title.addClass("title").html(item.title);
+                var image_box = $("<div class='icon'></div>").append(image).append(title);
                 image_box.colorbox({
                   href: item.image || item.icon,
                   scalePhotos: true,
@@ -37,9 +38,6 @@
                   maxHeight: '90%'
                 });
                 article.append(image_box);
-              } else if (item.source.toLowerCase() == "reddit") {
-                description.addClass("description").html(item.text);
-                article.append(description);
               } else if (item.source.toLowerCase() == "twitter") {
                 var begin_quote = $("<div class='begin_quote'>&#8220;</div>");
                 var end_quote = $("<div class='end_quote'>&#8222;</div>");

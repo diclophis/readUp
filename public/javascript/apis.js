@@ -20,7 +20,7 @@ Api.ReadUp = {
 
 	search: function() {
     Api.Twitter.search(this.term, this.page);
-    Api.Reddit.search(this.term, this.page);
+    // Api.Reddit.search(this.term, this.page);
     Api.Flickr.search(this.term, this.page);
     Api.Storify.search(this.term, this.page);
     return true;

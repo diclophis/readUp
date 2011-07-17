@@ -133,7 +133,7 @@ Api.Twitter = {
 				'title': item.from_user,
 				'text': item.text,
 				'image': null,
-				'url': item.source,
+				'url': "http://twitter.com/",
 				'source': 'Twitter'
 			})
 	    });
@@ -190,7 +190,7 @@ Api.Flickr = {
 				'text': null,
 				'title': item.title,
 				'image': item.media.m,
-				'url': item.link,
+				'url': item.media.m,
 				'source': 'Flickr'
 			});
 		  });

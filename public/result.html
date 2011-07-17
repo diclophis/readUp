@@ -12,6 +12,7 @@
 		<script type="text/javascript" charset="utf-8" src="javascript/jquery.Storage.js"></script>
 		<script type="text/javascript" charset="utf-8" src="javascript/jquery.shuffle.js"></script>
     <script type="text/javascript" charset="utf-8" src="javascript/jquery.colorbox-min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="javascript/jquery.touchSwipe-1.2.4.js"></script>
 		<script type="text/javascript" charset="utf-8" src="javascript/apis.js"></script>
     <script type="text/javascript" charset="utf-8" src="javascript/main.js"></script>
 	  <script type="text/javascript">
@@ -24,7 +25,12 @@
             $("ul#keywords").append($("<li></li>").addClass("keyword").html(keyword));
             $.each(items, function(i, item) {
               var article = $("<li></li>");
+              article.data("item", item);
+              //alert(article.data("item"));
+              var a = $("<a></a>");
+              a.attr('href', item.url);
               var title = $("<h2></h2>");
+              title.append(a);
               var description = $("<p></p>");
               var image = $("<img></img>");
               article.addClass("article").addClass(item.source.toLowerCase());
@@ -41,6 +47,7 @@
                   maxHeight: '90%',
                   speed: 1 * 1000
                 });
+                var image_box = $("<div class='icon'></div>").append(image);
                 article.append(image_box);
               } else if (item.source.toLowerCase() == "twitter") {
                 var begin_quote = $("<div class='begin_quote'>&#8220;</div>");
@@ -48,29 +55,79 @@
                 var poster = $("<div></div>").addClass("poster").html("- " + item.title);
                 description.addClass("message").append(begin_quote).append(item.text).append(poster).append(end_quote);
                 article.append(description);
+                title.addClass("title");
+                a.html(item.title);
+                description.addClass("description").html(item.text);
+                article.append(title).append(description);
               } else if (item.source.toLowerCase() == "storify") {
-                title.addClass("title").html(item.title);
+                title.addClass("title");
+                a.html(item.title);
                 description.addClass("description").html(item.text);
                 article.append(title).append(description);
               }
-              /*
-              $(article).colorbox({
-                iframe: true, 
-                href: item.url,
-                width: '90%',
-                height: '90%',
-                speed: 10 * 1000
-              });
-              */
               $("ul#content").append(article);
-              /*
-              $("ul#content li:eq("+i+") img").attr("src", item.image || item.icon);
-              $("ul#content li:eq("+i+") h2.title").html(item.title).addClass(item.source.toLowerCase());
-              $("ul#content li:eq("+i+") p.description").html(item.text);
-              */
             });
           }
         });
+        $("#content").swipe({
+          swipe: function(event, direction) {
+            //alert(direction);
+          },
+          click: function(event, target) {
+            var item = ($($(target).closest("li").get(0)).data("item"));
+            if (item.image) {
+              $.colorbox({
+                href: item.image,
+                scalePhotos: true,
+                initialWidth: '10%',
+                initialHeight: '10%',
+                maxWidth: '90%',
+                maxHeight: '90%',
+                speed: 400
+              });
+            } else {
+            alert(item.url);
+              $.colorbox({
+                iframe: true,
+                href: item.url,
+                initialWidth: '10%',
+                initialHeight: '10%',
+                width: '90%',
+                height: '90%',
+                speed: 400
+              });
+            }
+
+            /*
+            $(target).colorbox({
+              href: target.src,
+              open: true,
+              initialWidth: '10%',
+              initialHeight: '10%',
+              maxWidth: '90%',
+              maxHeight: '90%',
+              speed: 400
+            });
+            */
+            /*
+            href = false;
+            if (target.src) {
+              href = target.src;
+            } else if (target.parentNode) {
+              href = target.parentNode;
+            } else {
+              alert('wha');
+            }
+            */
+            /*
+            if (href) {
+            }
+            */
+          },
+          //triggerOnTouchEnd: false,
+          threshhold: 20
+        });
+
 /*
 var swipeOptions = {
   swipe:swipe,
@@ -92,8 +149,6 @@ $("#test").text("You swiped " + direction );
     </script>
   </head>
   <body class='portrait'>
-    <div id='debug'>
-    </div>
     <div id='header'>
       <h1 id='logo'>readUp</h1>
     </div>

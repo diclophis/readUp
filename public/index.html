@@ -10,38 +10,20 @@
 
 	  <script type="text/javascript">
       $(document).ready(function() {
-        Api.ReadUp.init("boobies", 10, function() {
-        });
-        window.setInterval(function() {
-          if (Api.ReadUp.lastWasReady) {
-            console.log("is ready");
-            sliced = Api.ReadUp.next();
-            if (sliced) {
-              $.each(sliced, function(i, item) {
-                //console.log(item);
-                $("<h1/>").text(item.title).appendTo("#debug");
-                if (item.image) {
-                  $("<img/>").attr("src", item.image).appendTo("#debug");
-                }
-              });
-            }
-          } else {
-            console.log("nothing there");
-          }
-        }, 500);
 
 	      if($('#search_term_list').val().length < 1) { 
 	        $('.searched_terms:hidden');
           }
         $('#add_button').click(function() {   
-          if(('#search_terms').val().length < 1) {
+          if($('#search_terms').val().length < 1) {
             alert('you need to include a term to search for');
           }
-          if($('.searched_terms:hidden') && ('#search_terms').val().length > 1) {
+          if($('.searched_terms:hidden') && $('#search_terms').val().length > 1) {
             $('.searched_terms').css('display','block');
           } 
           if($('#search_term_list li').length < 5) {
-            $('#search_term_list').val($('#search_terms').val());
+            Api.ReadUp.Storage.Keywords.save($('#search_terms').val());
+            $('#search_term_list').html(Api.ReadUp.Storage.Keywords.load().join(", "));
           }
           else {
             alert('maximum of 5 search terms reached'); 

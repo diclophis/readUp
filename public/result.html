@@ -38,9 +38,6 @@
                   maxHeight: '90%'
                 });
                 article.append(image_box);
-              } else if (item.source.toLowerCase() == "reddit") {
-                description.addClass("description").html(item.text);
-                article.append(description);
               } else if (item.source.toLowerCase() == "twitter") {
                 var begin_quote = $("<div class='begin_quote'>&#8220;</div>");
                 var end_quote = $("<div class='end_quote'>&#8222;</div>");

@@ -122,7 +122,8 @@ Api.Twitter = {
 				'title': item.from_user + ' says',
 				'text': item.text,
 				'image': null,
-				'url': item.source
+				'url': item.source,
+				'source': 'Twitter'
 			})
 	    });
 		return Api.Twitter.results;
@@ -132,7 +133,7 @@ Api.Twitter = {
 		$.getJSON("http://search.twitter.com/search.json?jsonp=?",
 			{
 				q: term,
-        page: p,
+        		page: p,
 				rpp: total || 50,
 				result_type: 'mixed',
 				callback: 'Api.Twitter.response'
@@ -155,7 +156,8 @@ Api.Reddit = {
 					'title': item.data.title,
 					'text': item.data.selftext,
 					'image': null,
-					'url': item.data.url
+					'url': item.data.url,
+					'source': 'Reddit'
 				});
 			});
 		});
@@ -177,7 +179,8 @@ Api.Flickr = {
 				'text': null,
 				'title': item.title,
 				'image': item.media.m,
-				'url': item.link
+				'url': item.link,
+				'source': 'Flickr'
 			});
 		  });
 		});
@@ -191,14 +194,15 @@ Api.Storify = {
 			'icon': item.thumbnail,
 			'text': item.description,
 			'title': item.title,
-			'url': item.permalink
+			'url': item.permalink,
+			'source': 'Storify'
 		});
 	  });
 	},
 	
 	search: function(term, p) {
 		$.getJSON("http://storify.com/topics/"+ term +".json?jsonp=?", {
-      page: p,
+			page: p,
 			callback: 'Api.Storify.response'
 		});
 	}

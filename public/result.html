@@ -18,9 +18,28 @@
           items = Api.ReadUp.next();
           if (items) {
             $.each(items, function(i, item) {
-              $("ul#content li:eq("+i+") img").attr("src", item.image || item.icon);
-              $("ul#content li:eq("+i+") h2.title").html(item.title).addClass(item.source.toLowerCase());
-              $("ul#content li:eq("+i+") p.description").html(item.text);
+              var article = $("<li></li>");
+              var title = $("<h2></h2>");
+              var description = $("<p></p>");
+              var image = $("<img></img>");
+              article.addClass("article").addClass(item.source.toLowerCase());
+              if (item.source.toLowerCase() == "flickr") {
+                image.addClass("img").attr("src", item.image || item.icon);
+                var image_box = $("<div class='icon'></div>").append(image);
+                article.append(image_box);
+              } else if (item.source.toLowerCase() == "reddit") {
+                description.addClass("description").html(item.text);
+                article.append(description);
+              } else if (item.source.toLowerCase() == "twitter") {
+                title.addClass("title").html(item.title);
+                description.addClass("description").html(item.text);
+                article.append(title).append(description);
+              } else if (item.source.toLowerCase() == "storify") {
+                title.addClass("title").html(item.title);
+                description.addClass("description").html(item.text);
+                article.append(title).append(description);
+              }
+              $("ul#content").append(article);
             });
           }
         });
@@ -54,69 +73,6 @@
     </ul>
 
     <ul id='content'>
-      <li class='article'>
-        <div class='text'>
-          <h2 class='title'></h2>
-          <p class='description'></p>
-        </div>
-        <div class='icon'><img src="" /></div>
-      </li>
-
-      <li class='article'>
-        <div class='text'>
-          <h2 class='title'></h2>
-          <p class='description'></p>
-        </div>
-        <div class='icon'><img src="" /></div>
-      </li>
-
-      <li class='article'>
-        <div class='text'>
-          <h2 class='title'></h2>
-          <p class='description'></p>
-        </div>
-        <div class='icon'><img src="" /></div>
-      </li>
-
-      <li class='article'>
-        <div class='text'>
-          <h2 class='title'></h2>
-          <p class='description'></p>
-        </div>
-        <div class='icon'><img src="" /></div>
-      </li>
-
-      <li class='article'>
-        <div class='text'>
-          <h2 class='title'></h2>
-          <p class='description'></p>
-        </div>
-        <div class='icon'><img src="" /></div>
-      </li>
-
-      <li class='article'>
-        <div class='text'>
-          <h2 class='title'></h2>
-          <p class='description'></p>
-        </div>
-        <div class='icon'><img src="" /></div>
-      </li>
-
-      <li class='article'>
-        <div class='text'>
-          <h2 class='title'></h2>
-          <p class='description'></p>
-        </div>
-        <div class='icon'><img src="" /></div>
-      </li>
-
-      <li class='article'>
-        <div class='text'>
-          <h2 class='title'></h2>
-          <p class='description'></p>
-        </div>
-        <div class='icon'><img src="" /></div>
-      </li>
     </ul>
 
     <div id='navigation'>

@@ -147,11 +147,11 @@ ul#content {
       font-family: "Open Sans Condensed", sans-serif;
       font-weight: bold;
       font-size: 20px; }
-      ul#content li.article h2.title.twitter {
+      ul#content li.article.twitter h2.title {
         border-bottom: 3px solid blue; }
-      ul#content li.article h2.title.reddit {
+      ul#content li.article.reddit h2.title {
         border-bottom: 3px solid red; }
-      ul#content li.article h2.title.flickr {
+      ul#content li.article.flickr h2.title {
         border-bottom: 3px solid pink; }
     ul#content li.article p.description {
       display: block;

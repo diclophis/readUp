@@ -141,7 +141,7 @@ ul#content {
       overflow: hidden; }
       ul#content li.article .icon img {
         width: 100%; }
-    ul#content li.article .text > h2.title {
+    ul#content li.article > h2.title {
       border-bottom: 3px solid #476275;
       margin: 10px 10px 0px;
       padding-bottom: 5px;

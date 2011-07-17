@@ -17,6 +17,7 @@
 	  <script type="text/javascript">
       $(document).ready(function() {
         var keyword = "iosdevcamp";
+        jQuery.fx.interval = 1000 / 14;
         Api.ReadUp.init(keyword, 8, function() {
           items = Api.ReadUp.next();
           if (items) {
@@ -34,8 +35,11 @@
                 image_box.colorbox({
                   href: item.image || item.icon,
                   scalePhotos: true,
+                  initialWidth: '5%',
+                  initialHeight: '5%',
                   maxWidth: '90%',
-                  maxHeight: '90%'
+                  maxHeight: '90%',
+                  speed: 1 * 1000
                 });
                 article.append(image_box);
               } else if (item.source.toLowerCase() == "twitter") {
@@ -49,7 +53,21 @@
                 description.addClass("description").html(item.text);
                 article.append(title).append(description);
               }
+              /*
+              $(article).colorbox({
+                iframe: true, 
+                href: item.url,
+                width: '90%',
+                height: '90%',
+                speed: 10 * 1000
+              });
+              */
               $("ul#content").append(article);
+              /*
+              $("ul#content li:eq("+i+") img").attr("src", item.image || item.icon);
+              $("ul#content li:eq("+i+") h2.title").html(item.title).addClass(item.source.toLowerCase());
+              $("ul#content li:eq("+i+") p.description").html(item.text);
+              */
             });
           }
         });

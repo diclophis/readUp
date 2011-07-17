@@ -13,18 +13,28 @@
     <script type="text/javascript" charset="utf-8" src="javascript/main.js"></script>
 	  <script type="text/javascript">
       $(document).ready(function() {
-        Api.ReadUp.init("bird", 8, function() {
-          items = Api.ReadUp.next();
-          if (items) {
-            $.each(sliced, function(i, item) {
-              $("ul#content li:eq("+i+") img").attr("src", item.image || item.icon);
-              $("ul#content li:eq("+i+") h2.title").html(item.title);
-              $("ul#content li:eq("+i+") p.description").html(item.text);
-            });
-          }
+        Api.ReadUp.init("bird", 10, function() {
         });
+        window.setInterval(function() {
+          if (Api.ReadUp.lastWasReady) {
+            console.log("is ready");
+            sliced = Api.ReadUp.next();
+            if (sliced) {
+              $.each(sliced, function(i, item) {
+                //console.log(item);
+                $("<h1/>").text(item.title).appendTo("#debug");
+                if (item.image) {
+                  $("<img/>").attr("src", item.image).appendTo("#debug");
+                }
+              });
+            }
+          } else {
+            console.log("nothing there");
+          }
+        }, 500);
       });
     </script>
+
 
   </head>
   <body class='portrait'>
@@ -54,83 +64,63 @@
 
     <ul id='content'>
       <li class='article'>
+        <div class='icon'><img alt="300" src="http://placekitten.com/g/200/300" /></div>
         <div class='text'>
           <h2 class='title'>blarg 1</h2>
           <p class='description'>
             Content here.
           </p>
         </div>
-        <div class='icon'><img alt="300" src="http://placekitten.com/g/200/300" /></div>
       </li>
 
       <li class='article'>
+        <div class='icon'><img alt="300" src="http://placekitten.com/g/200/300" /></div>
         <div class='text'>
           <h2 class='title'>blarg 2</h2>
           <p class='description'>
             Content here.
           </p>
         </div>
-        <div class='icon'><img alt="300" src="http://placekitten.com/g/200/300" /></div>
       </li>
 
       <li class='article'>
+        <div class='icon'><img alt="300" src="http://placekitten.com/g/200/300" /></div>
         <div class='text'>
           <h2 class='title'>blarg 3</h2>
           <p class='description'>
             Content here.
           </p>
         </div>
-        <div class='icon'><img alt="300" src="http://placekitten.com/g/200/300" /></div>
       </li>
 
       <li class='article'>
+        <div class='icon'><img alt="300" src="http://placekitten.com/g/200/300" /></div>
         <div class='text'>
           <h2 class='title'>blarg 4</h2>
           <p class='description'>
             Content here.
           </p>
         </div>
-        <div class='icon'><img alt="300" src="http://placekitten.com/g/200/300" /></div>
       </li>
 
       <li class='article'>
+        <div class='icon'><img alt="300" src="http://placekitten.com/g/200/300" /></div>
         <div class='text'>
           <h2 class='title'>blarg 5</h2>
           <p class='description'>
             Content here.
           </p>
         </div>
-        <div class='icon'><img alt="300" src="http://placekitten.com/g/200/300" /></div>
       </li>
 
       <li class='article'>
+        <div class='icon'><img alt="300" src="http://placekitten.com/g/200/300" /></div>
         <div class='text'>
           <h2 class='title'>blarg 6</h2>
           <p class='description'>
             Content here.
           </p>
         </div>
-        <div class='icon'><img alt="300" src="http://placekitten.com/g/200/300" /></div>
-      </li>
-
-      <li class='article'>
-        <div class='text'>
-          <h2 class='title'>blarg 7</h2>
-          <p class='description'>
-            Content here.
-          </p>
-        </div>
-        <div class='icon'><img alt="300" src="http://placekitten.com/g/200/300" /></div>
-      </li>
-
-      <li class='article'>
-        <div class='text'>
-          <h2 class='title'>blarg 8</h2>
-          <p class='description'>
-            Content here.
-          </p>
-        </div>
-        <div class='icon'><img alt="300" src="http://placekitten.com/g/200/300" /></div>
       </li>
     </ul>
 

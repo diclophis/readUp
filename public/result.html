@@ -16,9 +16,11 @@
     <script type="text/javascript" charset="utf-8" src="javascript/main.js"></script>
 	  <script type="text/javascript">
       $(document).ready(function() {
-        Api.ReadUp.init("iosdevcamp", 8, function() {
+        var keyword = "iosdevcamp";
+        Api.ReadUp.init(keyword, 8, function() {
           items = Api.ReadUp.next();
           if (items) {
+            $("ul#keywords").append($("<li></li>").addClass("keyword").html(keyword));
             $.each(items, function(i, item) {
               var article = $("<li></li>");
               var title = $("<h2></h2>");
@@ -65,21 +67,6 @@
     </div>
 
     <ul id='keywords'>
-      <li class='keyword'>
-        ios
-      </li>
-      <li class='keyword'>
-        restaurant
-      </li>
-      <li class='keyword'>
-        fashion
-      </li>
-      <li class='keyword'>
-        shopping
-      </li>
-      <li class='keyword'>
-        yosemite
-      </li>
     </ul>
 
     <ul id='content'>

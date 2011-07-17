@@ -63,7 +63,7 @@ html {
   color: #969797; }
 
 body {
-  background: url(/images/noise_01.png);
+  background: url(../images/noise_01.png);
   -webkit-text-size-adjust: none;
   position: relative;
   width: 1024px;
@@ -128,7 +128,7 @@ ul#content {
   ul#content li.article {
     display: block;
     position: relative;
-    background: url(/images/noise_01.png);
+    background: url(../images/noise_01.png);
     float: left;
     width: 512px;
     color: #474562; }
@@ -147,6 +147,12 @@ ul#content {
       font-family: "Open Sans Condensed", sans-serif;
       font-weight: bold;
       font-size: 20px; }
+      ul#content li.article h2.title.twitter {
+        border-bottom: 3px solid blue; }
+      ul#content li.article h2.title.reddit {
+        border-bottom: 3px solid red; }
+      ul#content li.article h2.title.flickr {
+        border-bottom: 3px solid pink; }
     ul#content li.article p.description {
       display: block;
       background: #f8ffff;
@@ -160,7 +166,7 @@ ul#content {
 #navigation {
   display: block;
   position: relative;
-  background: url(/images/noise_01.png);
+  background: url(../images/noise_01.png);
   width: 1024px;
   height: 40px;
   padding: 5px 0px; }
@@ -201,5 +207,5 @@ body.portrait ul#content {
 
 body.portrait #navigation {
   width: 768px; }
-  #navigation ul#pagination {
+  body.portrait #navigation ul#pagination {
     width: 568px; }

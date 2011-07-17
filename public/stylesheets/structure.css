@@ -3,7 +3,9 @@ body {
   text-align:center;
   font-family: ‘Varela Round’, Arial, sans-serif; 
   font-weight: 400; 
-  color:#637a6b;
+  color:#637a6b; 
+  margin:0;
+  padding:0;
 }
 
 body #wrapper { 
@@ -19,20 +21,17 @@ body #wrapper {
 h1, h2, h3, h4 { 
   font-family: ‘Open Sans Condensed’, Tahoma, sans-serif; 
   font-weight: 400; 
+  text-align:left;
 }        
 
 #wrapper #header {
-  background:#2175cb url('../images/logolines.png') 0 center no-repeat;
+  background:#2175cb; /*url('../images/logolines.png') 0 center no-repeat;*/
+  border-bottom:1px solid #fff;
   width:100%; 
-  padding:10px 0 0;
+  padding:10px 0 2px;
   text-align:left;
 }
 
-#wrapper #header #logo {
-  margin:-15px 0 0 65px;
-  font:normal 160px/170px "Swanky and Moo Moo", serif;
-  color:#fff;
-}
 
 #wrapper #footer {
   background:#a6a6a6;
@@ -52,36 +51,171 @@ body #welcome {
 }
 
 body #input_area {
-  width:486px;
-}
-
-body #input_area form {
-  margin:30px 0 0
-  ;
-}
-
-body #input_area form textarea {
-  width:370px;
-  height:280px;
-  background-color:#d8d8d8;
-  overflow:hidden;
-  border:0;
-  padding:30px;
-}
-
-body #input_area form input[type="submit"] {
-  width:430px;
-  padding:15px 0 22px; 
-  margin:0 0 20px;
+  /*width:486px;*/
+  background:url('../images/bkgnd_fire.png') 0 0 repeat-x;
   text-align:center;
-  background:url('../images/submit_button.png') 0 0 no-repeat;
-  color:#fff;
-  text-decoration:none;
-  cursor:pointer;
-  border:0;
-  font-size:42px;
+  width:100%;
+  height:768px; 
+  z-index:1;
+}
+
+body #input_area {
+  margin:0;
+  font-family:"Varela rounded", sans-serif;
+}
+
+body #input_area #searcharea {
+  z-index:2;
+  position:relative;
+  top:150px;
+  margin:0 auto;
+  width:520px; 
+  display:block;
+  text-align:center; 
 }  
 
+body #input_area #searcharea .helper_text { 
+  text-align:left;  
+  margin:10px 0 0 40px;
+  font:normal 12px/18px "Droid sans", sans-serif;
+  color:#656243; 
+  clear:left;                                
+}
+
+body #input_area #searcharea .helper_text ul,
+body #input_area #searcharea .helper_text ul li { 
+  list-style:none outside none;
+  margin:0;
+  padding:0;
+}
+
+body #input_area #searcharea .helper_text ul li {
+  line-height:22px;  
+  margin:0 0 0 8px;
+} 
+
+#wrapper #input_area #logo { 
+  margin-left:10px;
+  font:normal 60px/70px "Swanky and Moo Moo", sans-serif;
+  color:#fff; 
+  text-shadow:0 0 2px #333;
+}
+
+body #input_area #searcharea input[type="text"] {
+  width:360px;
+  height:30px;
+  background-color:#f4f6f8;
+  box-shadow:0px 0px 2px #454545;
+  -moz-box-shadow:0px 0px 2px #454545;
+  -webkit-box-shadow:0px 0px 2px #454545;
+  overflow:hidden;
+  border:2px solid #f2f4f3;
+  padding:5px 20px;
+  margin:5px auto 0; 
+  font-size:20px;
+  color:#898786;  
+  clear:both;
+}
+
+body #input_area #searcharea input[type="submit"].add_button {
+  width:40px;
+  height:40px;
+  padding:0;
+  margin:7px 0 0 5px;
+  text-align:center;
+  background:url('../images/add_buttns.png') 0 0 no-repeat;
+  font:bold 42px/50px "Droid sans", Arial, sans-serif;
+  color:#fff;
+  text-decoration:none; 
+  text-indent:-999em;
+  cursor:pointer;
+  border:0;
+  z-index:2;  
+}  
+
+body #input_area #searcharea input[type="submit"].add_button:hover {
+  background-position:-40px 0;  
+}
+
+body #search_build_col {
+  width:216px;
+  padding:112px 0 0;
+  display:none;
+}
+
+body #search_build_col h3.selected_items {
+  border-top:1px solid #e8e4e2;
+  border-bottom:1px solid #e8e4e2;
+  padding:16px 0;
+}
+
+body #search_build_col ul,
+body #search_build_col ul li {
+  list-style:none outside none;
+  margin:0; 
+  padding:0;
+} 
+
+body #search_build_col ul li {
+  padding:12px 0;
+  margin:1px 0;
+  text-align:left;
+  border-bottom:1px solid #f4f4f6;
+}
+
+body #search_build_col ul li a {
+  background:url('../images/delete_button.png') -20px center no-repeat;
+  padding-left:30px;
+  text-decoration:none; 
+  text-align:left;
+  color:#686868;
+}
+
+body #search_build_col ul li a:hover {
+  background-position:0px center; 
+  color:#000000;
+}
+
+body #searcharea form {
+  font-family:"Varela rounded", sans-serif;
+}
+
+body #searcharea form input[type="submit"].build{
+  background:#2175cb;
+  border:1px solid #134a82;
+  text-align:center;
+  margin:20px auto;
+  padding:15px 35px;
+  text-shadow:0 0 2px #134a82;
+  text-decoration:none;
+  font-size:30px;
+  color:#e9f2f4;
+}                            
+
+body #searcharea form input[type="submit"].build:hover {
+  border-color:#fff;
+  background-color:#549fed;
+}
+
+body #searcharea .searched_terms {
+  padding:10px; 
+  margin:0 0 0 30px;
+  text-align:left;
+}
+
+body #searcharea .searched_terms h3 {
+  color:#323121;
+}
+
+body #searcharea .searched_terms ul,
+body #searcharea .searched_terms ul li {
+  list-style:none outside none;
+}
+
+#input_error {
+  color:black;
+  font:normal 15px/18px sans-serif;
+}
 
 /* columns and structural blocks */
 .rounded {

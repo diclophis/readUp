@@ -7,6 +7,7 @@
 		<script type="text/javascript" charset="utf-8" src="javascript/apis.js"></script>
 	  <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed|Varela+Round|Droid+Sans|Swanky+and+Moo+Moo&v2' rel='stylesheet' type='text/css'>
 	  <link href='stylesheets/structure.css' rel='stylesheet' type='text/css'>
+
 	  <script type="text/javascript">
       $(document).ready(function() {
         Api.ReadUp.init("boobies", 10, function() {
@@ -28,31 +29,77 @@
             console.log("nothing there");
           }
         }, 500);
+
+	      if($('#search_term_list').val().length < 1) { 
+	        $('.searched_terms:hidden');
+          }
+        $('#add_button').click(function() { 
+          if($('.searched_terms:hidden') && ('#search_terms').val().length > 1) {
+            $('.searched_terms').css('display','block');
+          } 
+          if($('.searched_terms li').length < 5) {
+            $('#search_term_list').html() += '<li><a href="#">' + $('#search_terms').val() + '</a></li>';
+          }
+          else {
+            alert('maximum of 5 search terms reached');
+          }
+        });
       });
-    </script>
+	  </script>
+
 	</head>
 	<body>
 	    <div id="wrapper">
-        <div id="header">
-          <div id="logo">
-            readUp
-          </div>
-        </div> 
-        <div id="body">
-          <div id="welcome" class="columns left">
-            <h1>Welcome to readUp</h1>
-            <p>Get started by doing something</p>
-          </div> 
           <div id="input_area" class="columns left">
-            <form>
-              <input type="submit" name="submit" id="submit" value="Add" />
-              <textarea name="search_terms" id="search_terms" class="rounded"></textarea>
-            </form>
+            <!--<form method="post" name="input_form">-->
+             <div id="searcharea"> 
+               <div id="logo" class="left">
+                 readUp
+               </div>
+              <input type="text" name="search_terms" id="search_terms" class="left rounded" />
+              <input type="submit" name="submit" id="add_button" value="add +" class="left add_button" />
+              <div class="helper_text left"> 
+                <br />
+                <strong>Examples:</strong><br />
+                <ul>
+                  <li>ios dev camp</li>
+                  <li>yamaha tires</li>
+                  <li>key lime pie</li>
+                </ul>
+               </div> 
+               <div class="searched_terms left">
+                 <h3 class="selected_items">Selected items</h3>
+                 <form name="search_form" id="search_term_form" method="post">
+                 <ul class="search_list" id="search_term_list">
+                 </ul> 
+                 <input type="submit" name="submit" value="build >>" class="rounded build" />
+               </form>
+               </div>
+            </div>
+            <!--</form>-->
           </div>
-        </div>
-        <div id="footer">
-          footer
-        </div>
+          <!--  
+          <div id="search_build_col" class="columns right">
+            <h3 class="selected_items">Selected items</h3>
+            <form name="search_form" method="post">
+            <ul class="search_list">
+              <li>
+                <a href="#">Kittens</a>
+              </li>
+              <li>
+                <a href="#">physics engines</a>
+              </li>
+              <li>
+                <a href="#">leather luggage</a>
+              </li>
+              <li>
+                <a href="#">bike tires</a>
+              </li>
+            </ul> 
+            <input type="submit" name="submit" value="build >>" class="rounded" />
+          </form>
+          </div> 
+          -->
       </div>
     <div id="debug">
     </div>

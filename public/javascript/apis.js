@@ -8,19 +8,13 @@ Api.ReadUp = {
   lastWasReady: false,
   term: "",
   page: 1,
-
-  onNextReadyCallback: function() {
-    console.log('please call Api.ReadUp.init passing in a callback for onNextReady');
-  },
+  onNextReadyCallback: function() {},
+  sources: [],
 
   init: function(t, c, onrc) {
     this.term = t;
     this.count = c;
-    if (onrc === undefined) {
-    } else {
-      console.log('setting onrc');
-      this.onNextReadyCallback = onrc;
-    }
+    this.onNextReadyCallback = onrc;
     this.search();
   },
 
@@ -34,12 +28,13 @@ Api.ReadUp = {
 
   fill: function(item) {
     this.results.push(item);
-    has_enough_items_for_a_page = (this.results.length > (this.cursor + this.count));
-    if (has_enough_items_for_a_page && !this.lastWasReady) {
+    this.sources.push(item.source);
+    this.sources = $.unique(this.sources);
+    has_enough_interesting_items = (this.results.length > (this.cursor + this.count)) && (this.sources.length >= 3);
+    if (has_enough_interesting_items && !this.lastWasReady) {
       this.lastWasReady = true;
       this.onNextReadyCallback();
     }
-    console.log("buffer is now this big: " + this.results.length);
   },
 
   previous: function() {
@@ -56,6 +51,22 @@ Api.ReadUp = {
 
   next: function() {
     if (this.lastWasReady) {
+
+      if (this.cursor == 0) {
+        begin_of_seen = 0;
+        begin_of_unseen = 0;
+        end_of_unseen = (this.results.length);
+      } else {
+        begin_of_seen = (0);
+        begin_of_unseen = (this.cursor + this.count);
+        end_of_unseen = (this.results.length);
+      }
+
+      seen = this.results.slice(begin_of_seen, begin_of_unseen);
+      unseen = this.results.slice(begin_of_unseen, end_of_unseen);
+      $.shuffle(unseen);
+      this.results = seen.concat(unseen);
+
       console.log("next slicing: ", this.cursor, this.count, this.results.length);
       sliced = this.results.slice(this.cursor, this.cursor + this.count)
       if (sliced.length == this.count) {

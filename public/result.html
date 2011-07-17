@@ -9,14 +9,15 @@
     <link href="stylesheets/layout.css" media="screen" rel="stylesheet" type="text/css" />
 		<script type="text/javascript" charset="utf-8" src="javascript/jquery-1.6.2.min.js"></script>
 		<script type="text/javascript" charset="utf-8" src="javascript/jquery.Storage.js"></script>
+		<script type="text/javascript" charset="utf-8" src="javascript/jquery.shuffle.js"></script>
 		<script type="text/javascript" charset="utf-8" src="javascript/apis.js"></script>
     <script type="text/javascript" charset="utf-8" src="javascript/main.js"></script>
 	  <script type="text/javascript">
       $(document).ready(function() {
-        Api.ReadUp.init("bird", 8, function() {
+        Api.ReadUp.init("iosdevcamp", 8, function() {
           items = Api.ReadUp.next();
           if (items) {
-            $.each(sliced, function(i, item) {
+            $.each(items, function(i, item) {
               $("ul#content li:eq("+i+") img").attr("src", item.image || item.icon);
               $("ul#content li:eq("+i+") img").remove();
               $("ul#content li:eq("+i+") h2.title").html(item.title).addClass(item.source.toLowerCase());

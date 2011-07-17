@@ -131,7 +131,8 @@ ul#content {
     background: url(../images/noise_01.png);
     float: left;
     width: 512px;
-    color: #474562; }
+    color: #474562;
+    line-height: 120%; }
     ul#content li.article .icon {
       display: block;
       position: relative;
@@ -186,10 +187,7 @@ ul#content {
         border-bottom: 3px solid pink; }
     ul#content li.article p.description {
       display: block;
-      background: #f8ffff;
-      margin: 10px 10px 10px;
-      font-family: "Varela Round", sans-serif;
-      font-size: 13px; }
+      margin: 10px 10px 10px; }
     ul#content li.article { }
 
 #navigation {

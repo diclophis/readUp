@@ -10,7 +10,7 @@ function detectOrientation() {
   } else if (window.orientation == 180) {
     switchOrientation("portrait");
   } else {
-    switchOrientation("portrait");
+    switchOrientation("landscape");
   };
 };
 
